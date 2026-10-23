@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b0u40gye745ci"]
+
+[ext_resource type="Script" uid="uid://be5hrlbwjxj5b" path="res://NPC_2.gd" id="1_1620k"]
+[ext_resource type="Texture2D" uid="uid://cbkprgke83gsa" path="res://__MACOSX/Tiny Wonder Forest 1.0/characters/mushrooms/brown mushroom sheet.png" id="2_lsvnp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgout"]
+radius = 33.24154
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj3uc"]
+size = Vector2(154.25, 138.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8f2k"]
+atlas = ExtResource("2_lsvnp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt06f"]
+atlas = ExtResource("2_lsvnp")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffi2r"]
+atlas = ExtResource("2_lsvnp")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5lh1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8f2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt06f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffi2r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NPC_2" type="StaticBody2D" unique_id=1726038937]
+position = Vector2(561, 267)
+script = ExtResource("1_1620k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1605304517]
+visible = false
+position = Vector2(-25, 8)
+shape = SubResource("CircleShape2D_kgout")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1871561572]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=656106954]
+visible = false
+position = Vector2(-25, 10)
+shape = SubResource("RectangleShape2D_gj3uc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1703186542]
+position = Vector2(-22.000011, 0)
+scale = Vector2(5.0624995, 5.3125)
+sprite_frames = SubResource("SpriteFrames_v5lh1")
+autoplay = "default"
+frame_progress = 0.82224923
+flip_h = true
+
+[node name="prompt_2" type="Label" parent="." unique_id=1669799741]
+offset_left = -74.0
+offset_top = -65.0
+offset_right = 18.0
+offset_bottom = -42.0
+
+[node name="DialogueLabel" type="Label" parent="." unique_id=2035323554]
+offset_left = -95.0
+offset_top = -81.0
+offset_right = 49.0
+offset_bottom = -42.0
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bdq8krfxife6m"]
+
+[ext_resource type="Script" uid="uid://tsipyxxawr53" path="res://control.gd" id="1_f33cr"]
+[ext_resource type="Texture2D" uid="uid://dinl243hogvy5" path="res://istockphoto-1333010525-612x612.jpg" id="2_4pm02"]
+
+[node name="Control" type="Control" unique_id=1537914536]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f33cr")
+
+[node name="Istockphoto1333010525612x612" type="Sprite2D" parent="." unique_id=2049423353]
+position = Vector2(572, 275)
+scale = Vector2(2.1421568, 2.095368)
+texture = ExtResource("2_4pm02")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=643265194]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17600001
+anchor_top = 0.563
+anchor_right = 0.77800006
+anchor_bottom = 1.0
+offset_left = 0.24798584
+offset_top = 0.17599487
+offset_right = -2.2560425
+offset_bottom = -62.0
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1247596084]
+layout_mode = 2
+text = "                    play                        "
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=634078213]
+layout_mode = 2
+text = "                           options                     "
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=1863745501]
+layout_mode = 2
+text = "                     exit                    "
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
